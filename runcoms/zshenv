@@ -9,3 +9,17 @@
 if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprofile"
 fi
+
+[[ -r ~/.aliases ]] && source ~/.aliases
+[[ -r ~/.zshenv.local ]] && source ~/.zshenv.local
+typeset -TU CLASSPATH classpath
+export LC_ALL=$LANG
+
+function gradle() {
+  if [[ -x ./gradlew ]]; then
+    ./gradlew "$@"
+  else
+    command gradle "$@"
+  fi
+}
+

@@ -18,7 +18,7 @@ fpath=("${0:h}/external/src" $fpath)
 # Options
 #
 
-setopt COMPLETE_IN_WORD    # Complete from both ends of a word.
+unsetopt COMPLETE_IN_WORD  # Complete from both ends of a word.
 setopt ALWAYS_TO_END       # Move cursor to the end of a completed word.
 setopt PATH_DIRS           # Perform path search even on command names with slashes.
 setopt AUTO_MENU           # Show completion menu on a successive tab press.
